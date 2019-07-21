@@ -7,7 +7,7 @@ def test_push():
     assert colors.count() == 1
     colors.push("Ultramarine Blue")
     assert colors.count() == 2
-
+test_push()
 def test_pop():
     colors = SingleLinkedList()
     colors.push("Magenta")
@@ -15,7 +15,7 @@ def test_pop():
     assert colors.pop() == "Alizarin"
     assert colors.pop() == "Magenta"
     assert colors.pop() == None
-
+test_pop()
 def test_unshift():
     colors = SingleLinkedList()
     colors.push("Viridian")
@@ -25,21 +25,19 @@ def test_unshift():
     assert colors.unshift() == "Sap Green"
     assert colors.unshift() == "Van Dyke"
     assert colors.unshift() == None
-
+test_unshift()
 def test_shift():
     colors = SingleLinkedList()
     colors.shift("Cadmium Orange")
     assert colors.count() == 1
-
     colors.shift("Carbazole Violet")
-
     assert colors.count() == 2
-
     assert colors.pop() == "Cadmium Orange"
-
     assert colors.count() == 1
     assert colors.pop() == "Carbazole Violet"
     assert colors.count() == 0
+
+test_shift()
 
 def test_remove():
     colors = SingleLinkedList()
@@ -47,20 +45,12 @@ def test_remove():
     colors.push("Zinc White")
     colors.push("Nickle Yellow")
     colors.push("Perinone")
-    colors.print_list()
-    print('remove Cobalt \n')
     assert colors.remove("Cobalt") == 0
-    colors.print_list()
     assert colors.remove("Perinone") == 2
-    print('remove Perinone \n')
-    colors.print_list()
     assert colors.remove("Nickle Yellow") == 1
-    print('remove Nickle Yellow \n')
-    colors.print_list()
     assert colors.remove("Zinc White") == 0
-    print('remove Zinc White \n')
-    colors.print_list()
 
+test_remove()
 
 def test_first():
     colors = SingleLinkedList()
@@ -70,7 +60,7 @@ def test_first():
     assert colors.first() == "Cadmium Red Light"
     colors.shift("Pthalo Green")
     assert colors.first() == "Pthalo Green"
-
+test_first()
 def test_last():
     colors = SingleLinkedList()
     colors.push("Cadmium Red Light")
@@ -79,7 +69,7 @@ def test_last():
     assert colors.last() == "Hansa Yellow"
     colors.shift("Pthalo Green")
     assert colors.last() == "Hansa Yellow"
-
+test_last()
 def test_get():
     colors = SingleLinkedList()
     colors.push("Vermillion")
@@ -91,10 +81,7 @@ def test_get():
     assert colors.get(0) == "Vermillion"
     assert colors.get(1) == "Sap Green"
     assert colors.get(2) == "Cadmium Yellow Light"
-    colors.print_list()
     assert colors.pop() == "Cadmium Yellow Light"
-    print("\n")
-    colors.print_list()
     assert colors.get(0) == "Vermillion"
     assert colors.get(1) == "Sap Green"
 

@@ -36,13 +36,23 @@ class SingleLinkedList(object):
                 node = node.next
             assert self.end != node
             self.end = node
+            next = self.end.next
+            self.end.next = None
 
   
-            return node.next.value
+            return next.value
             
     def shift(self, obj):
-        """Another name for push."""
-        self.push(obj)
+        """Add at begining"""
+        node  = SingleLinkedListNode(obj, None)
+        if self.begin == None:
+            self.begin = node
+            self.end = self.begin
+        else:
+            temp = self.begin
+            self.begin = node
+            self.begin.next = temp
+            
 
     def unshift(self):
         """Removes the first item and returns it."""
@@ -101,8 +111,8 @@ class SingleLinkedList(object):
         return count
     def get(self, index):
         """Get the value at index."""
-
-        if index < 0 or index > self.count():
+ 
+        if index < 0 or index >= self.count():
             return None
 
         curr = self.begin
@@ -131,6 +141,7 @@ class SingleLinkedList(object):
 
         dump_string = f"{mark}:  {to_print}"
         print('dump',dump_string, end=" ")
+
     def print_list(self):
         node = self.begin
         while node != None:
